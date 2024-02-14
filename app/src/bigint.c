@@ -21,7 +21,7 @@ BigInt *bigint_init(const char *str)
   
   BigInt *bigint = Malloc(sizeof(*bigint));
   bigint->is_neg = 1 ? str[0] == '-' : 0;
-  bigint->digits = Malloc(sizeof(uint32_t) * (string_len + 1));
+  bigint->digits = Malloc(sizeof(uint32_t) * string_len);
 
   const uint32_t start = bigint->is_neg;
   for (size_t i = start; i < string_len; ++i)
