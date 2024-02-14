@@ -64,5 +64,5 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 
-# CMake folder
-# cmake/
+# clangd cache
+ .cache/
