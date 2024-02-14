@@ -9,6 +9,6 @@ file(GLOB_RECURSE sources
 
 add_executable(my_app ${sources})
 
-# target_include_directories(my_app PUBLIC include)
+target_include_directories(my_app PUBLIC include)
 
 # add_library(my_bigInt_program ${my_bigInt_files})
