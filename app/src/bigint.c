@@ -1,4 +1,5 @@
 #include "bigint.h"
+#include "bigint_internal.h"
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -46,3 +47,22 @@ void bigint_print(BigInt *n)
   }
 }
 
+BigInt *bigint_add(BigInt *a, BigInt *b)
+{
+  BigInt *res = Malloc(sizeof(*res));
+  
+  uint32_t same_sign = (a->is_neg == b->is_neg);
+  if (!same_sign)
+  {
+    if (a->is_neg)
+    {
+      res = bigint_subtr(b, a);
+    }
+    else
+    {
+      res = bigint_subtr(a, b);
+    }
+    return res;
+  }
+  
+}
