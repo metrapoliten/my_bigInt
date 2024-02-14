@@ -1,5 +1,4 @@
 #include "bigint.h"
-#include <__stddef_size_t.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,7 +15,7 @@ void *Malloc(size_t size)
   return ptr;
 }
 
-BigInt *bigint_init(char *str)
+BigInt *bigint_init(const char *str)
 {
   const uint64_t string_len = strlen(str);
   
@@ -29,5 +28,21 @@ BigInt *bigint_init(char *str)
   {
     bigint->digits[i - start] = str[i];
   }
+  
+  bigint->len = string_len - start;
+  
   return bigint;
 }
+
+void bigint_print(BigInt *n)
+{
+  if (n->is_neg)
+  {
+    (void) putchar('-');
+  }
+  for (size_t i = 0; i < n->len; ++i)
+  {
+    (void) putchar(n->digits[i]);
+  }
+}
+

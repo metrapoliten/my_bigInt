@@ -7,14 +7,13 @@
   * \param str A string that will be converted to a BigInt.
   * \return A pointer to initialised BigInt.
   */
-BigInt *bigint_init(char *str);
+BigInt *bigint_init(const char *str);
 
 /*! *\brief
-  * Converts a BigInt to string.
-  * \param n A BigInt that will be converted to a BigInt.
-  * \return A string that was converted from a BigInt.
+  * Prints a BigInt.
+  * \param n A BigInt to print.
   */
-char *bigint_to_str(BigInt *n);
+void bigint_print(BigInt *n);
 
 
 /*** ARITHMETICAL OPERATIONS ***/
